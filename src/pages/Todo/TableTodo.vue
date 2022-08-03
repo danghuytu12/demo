@@ -15,9 +15,6 @@
           <v-icon small @click="deleteItem(props.item.id)"> delete</v-icon>
         </td>
       </template>
-      <v-alert slot="no-results" :value="true" color="error" icon="warning">
-        Your search for "{{ search }}" .
-      </v-alert>
     </v-data-table>
 </template>
 
@@ -34,11 +31,6 @@ export default {
         search: {
             type: String,
         }
-    },
-    data() {
-      return {
-
-      }
     },
     methods: {
         editItem(item) {

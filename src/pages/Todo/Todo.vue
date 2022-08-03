@@ -85,16 +85,23 @@ export default {
       this.dialog = true;
     },
 
+    
     deleteItem(item) {
-        HTTP.delete(`/todo/${item}`).then(() => this.loadProjects());
-
+      HTTP.delete(`/todo/${item}`)
+        .then(() => {
+          this.loadProjects();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
+
     close() {
       this.dialog = false;
       this.loadProjects;
-      setTimeout(() => {
-        this.editedIndex = -1;
-      }, 300);
+      // setTimeout(() => {
+      //   this.editedIndex = -1;
+      // }, 300);
       this.loadForm();
     },
 
