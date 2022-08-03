@@ -2,7 +2,7 @@
   <div>
     
     <v-toolbar flat>
-      <dialogCus
+      <Dialog
         :editedItem="editedItem"
         :dialog="dialog"
         :formTitle="formTitle"
@@ -24,7 +24,7 @@
       </v-flex>
       
     </v-toolbar>
-    <tableTodo
+    <TableTodo
       @editItem="editItem"
       @deleteItem="deleteItem"
       :headers="headers"
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import { HTTP } from "../../api/api";
-import dialogCus from "./DialogCus.vue";
-import tableTodo from "./TableTodo.vue";
+import { HTTP } from "../../api/data";
+import Dialog from "./Dialog.vue";
+import TableTodo from "./TableTodo.vue";
 export default {
   data: () => ({
     dialog: false,
@@ -69,8 +69,8 @@ export default {
     }
   },
   components: {
-    dialogCus,
-    tableTodo
+    Dialog,
+    TableTodo
   },
   computed: {
     formTitle() {

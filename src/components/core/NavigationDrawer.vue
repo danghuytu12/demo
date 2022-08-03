@@ -27,7 +27,7 @@
 
       <v-list-tile @click="changeRoute('Todo', 8)">
         <v-list-tile-action>
-          <v-icon>event_note</v-icon>
+          <v-icon>calendar_today</v-icon>
         </v-list-tile-action>
         <v-list-tile-title :class="[{'active': selectedIndex === 8}, 'item-title' ]"> {{ $t('todo') }}</v-list-tile-title>
       </v-list-tile>

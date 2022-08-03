@@ -27,15 +27,12 @@ export default {
     props: {
         headers: {
             type: Array,
-            required: true
         },
         projects: {
             type: Array,
-            required: true
         },
         search: {
             type: String,
-            required: true
         }
     },
     data() {
