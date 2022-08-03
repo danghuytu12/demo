@@ -87,7 +87,7 @@ export default {
 
     
     deleteItem(item) {
-      HTTP.delete(`/todo/${item}`)
+      HTTP.delete(`/todo/${item}`,)
         .then(() => {
           this.loadProjects();
         })

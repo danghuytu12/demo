@@ -36,8 +36,8 @@ export default {
         editItem(item) {
             this.$emit('editItem', {item :item} )
         },
-        deleteItem() {
-          this.$emit('deleteItem')
+        deleteItem(item) {
+          this.$emit('deleteItem',item)
         }
     }
 }
