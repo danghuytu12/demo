@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { validateAge, validateName, validateEmail } from '../../untils/validateInput';
+import { validateAge, validateName, validateEmail } from '../../utils/validateInput';
 export default {
 
   props: {
