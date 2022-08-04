@@ -4,14 +4,14 @@
       <v-btn slot="activator" color="blue" dark class="mb-2">Add User</v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">{{ formTitle }}</span>
+          <span class="headline">{{ title }}</span>
         </v-card-title>
 
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field class="a" v-model="editedItem.name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
+          <v-text-field class="a" v-model="editedUser.name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
 
-          <v-text-field class="a"  v-model="editedItem.age" :rules="numberRule" label="Age" required></v-text-field>
-          
+          <v-text-field class="a"  v-model="editedUser.age" :rules="numberRule" label="Age" required></v-text-field>
+           <v-text-field class="a"  v-model="editedUser.phone"  label="Phone Number" required></v-text-field>
         </v-form>
 
         <v-card-actions>
@@ -28,13 +28,13 @@
 
 export default {
   props: {
-    editedItem: {
+    editedUser: {
       type: Object,
     },
     dialog: {
       type: Boolean,
     },
-    formTitle: {
+    title: {
       type: String,
     },
   },
@@ -58,7 +58,6 @@ export default {
     close() {
       this.$emit('close')
     },
-
 
   },
 

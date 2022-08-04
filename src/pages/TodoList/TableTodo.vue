@@ -1,18 +1,19 @@
 <template>
      <v-data-table
       :headers="headers"
-      :items="projects"
+      :items="tutorials"
       :search="search"
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
         <td class="text-xs-left">{{ props.item.name }}</td>
         <td class="text-xs-left">{{ props.item.age }}</td>
+        <td class="text-xs-left">{{ props.item.phone }}</td>
         <td class="layoutActions">
-          <v-icon small class="mr-2" @click="editItem(props.item)">
+          <v-icon small class="mr-2" @click="editUser(props.item)">
             edit</v-icon
           >
-          <v-icon small @click="deleteItem(props.item.id)"> delete</v-icon>
+          <v-icon small @click="deleteUser(props.item.id)"> delete</v-icon>
         </td>
       </template>
     </v-data-table>
@@ -25,7 +26,7 @@ export default {
         headers: {
             type: Array,
         },
-        projects: {
+        tutorials: {
             type: Array,
         },
         search: {
@@ -33,11 +34,11 @@ export default {
         }
     },
     methods: {
-        editItem(item) {
-            this.$emit('editItem', {item :item} )
+        editUser(item) {
+            this.$emit('editUser', {item :item} )
         },
-        deleteItem(item) {
-          this.$emit('deleteItem',item)
+        deleteUser(item) {
+          this.$emit('deleteUser',item)
         }
     }
 }

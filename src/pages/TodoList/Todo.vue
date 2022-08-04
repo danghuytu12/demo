@@ -3,9 +3,9 @@
     
     <v-toolbar flat>
       <Dialog
-        :editedItem="editedItem"
+        :editedUser="editedUser"
         :dialog="dialog"
-        :formTitle="formTitle"
+        :title="title"
         @save="save"
         @close="close"
       />
@@ -25,11 +25,11 @@
       
     </v-toolbar>
     <TableTodo
-      @editItem="editItem"
-      @deleteItem="deleteItem"
+      @editUser="editUser"
+      @deleteUser="deleteUser"
       :headers="headers"
       :search="search"
-      :projects="projects"
+      :tutorials="tutorials"
     />
   </div>
 </template>
@@ -45,22 +45,24 @@ export default {
     headers: [
       { text: "Name", align: "left", sortable: true, value: "name" },
       { text: "Age", value: "age" },
+      { text: "Phone Number", value: "phone" },
       { text: "Actions", value: "name", sortable: false }
     ],
-    projects: [],
-    errors: [],
+    tutorials: [],
     editedIndex: -1,
-    editedItem: {
+    editedUser: {
       name: "",
       age: "",
+      phone:""
     },
     defaultItem: {
       name: "",
       age: "",
+      phone:""
     }
   }),
   created() {
-    this.loadProjects();
+    this.loadData();
   },
   mounted() {},
   watch: {
@@ -73,23 +75,22 @@ export default {
     TableTodo
   },
   computed: {
-    formTitle() {
+    title() {
       return this.editedIndex === -1 ? "Add User" : "Edit User";
     }
   },
   methods: {
-    editItem(item) {
-      console.log(item);
-      this.editedItem = { ...item.item };
+    editUser(item) {
+      this.editedUser = { ...item.item };
       this.editedIndex = 1;
       this.dialog = true;
     },
 
     
-    deleteItem(item) {
+    deleteUser(item) {
       HTTP.delete(`/todo/${item}`,)
         .then(() => {
-          this.loadProjects();
+          this.loadData();
         })
         .catch((e) => {
           console.log(e);
@@ -98,55 +99,52 @@ export default {
 
     close() {
       this.dialog = false;
-      this.loadProjects;
-      // setTimeout(() => {
-      //   this.editedIndex = -1;
-      // }, 300);
+      this.loadData;
       this.loadForm();
     },
 
     save() {
       if (this.editedIndex === -1) {
-        this.saveProjects();
+        this.saveUser();
       } else {
-        HTTP.put(`/todo/${this.editedItem.id}`, this.editedItem)
+        HTTP.put(`/todo/${this.editedUser.id}`, this.editedUser)
           .then(res => {
-            this.loadProjects();
+            this.loadData();
           })
           .catch(e => {
-            this.errors.push(e);
+            console.log(e)
           });
       }
 
       this.close();
     },
 
-    saveProjects() {
-      HTTP.post('/todo', this.editedItem)
+    saveUser() {
+      HTTP.post('/todo', this.editedUser)
         .then(res => {
-          this.loadProjects();
+          this.loadData();
           this.loadForm();
         })
         .catch(e => {
-          this.errors.push(e);
+          console.log(e)
         });
     },
 
-    loadProjects() {
+    loadData() {
       HTTP.get('/todo')
         .then(res => {
-          console.log("res", res);
-          this.projects = res.data;
+          this.tutorials = res.data;
         })
         .catch(e => {
-          this.errors.push(e);
+          console.log(e)
         });
     },
 
     loadForm() {
-      this.editedItem = {
+      this.editedUser = {
         name: "",
         age: "",
+        phone:""
       };
     }
   }
