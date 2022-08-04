@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" max-width="500px">
+    <v-dialog v-model="dialog" persistent max-width="500px">
       <v-btn slot="activator" color="blue" dark class="mb-2">Add User</v-btn>
       <v-card>
         <v-card-title>
