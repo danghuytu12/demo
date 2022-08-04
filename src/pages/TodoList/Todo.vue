@@ -53,12 +53,12 @@ export default {
     editedUser: {
       name: "",
       age: "",
-      phone:""
+      email:""
     },
     defaultItem: {
       name: "",
       age: "",
-      phone:""
+      email:""
     }
   }),
   created() {
@@ -78,6 +78,7 @@ export default {
     title() {
       return this.editedIndex === -1 ? "Add User" : "Edit User";
     }
+    
   },
   methods: {
     editUser(item) {
@@ -122,8 +123,9 @@ export default {
     saveUser() {
       HTTP.post('/todo', this.editedUser)
         .then(res => {
-          this.loadData();
           this.loadForm();
+          this.loadData();
+          
         })
         .catch(e => {
           console.log(e)
@@ -144,7 +146,7 @@ export default {
       this.editedUser = {
         name: "",
         age: "",
-        phone:""
+        email:""
       };
     }
   }
