@@ -8,10 +8,11 @@
         </v-card-title>
 
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field class="a" v-model="editedUser.name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
+          <v-text-field class="spacing_input" v-model="editedUser.name" :counter="50" :rules="nameRules" label="Name" required>
+          </v-text-field>
 
-          <v-text-field class="a"  v-model="editedUser.age" :rules="numberRule" label="Age" required></v-text-field>
-           <v-text-field class="a"  v-model="editedUser.phone"  label="Phone Number" required></v-text-field>
+          <v-text-field class="spacing_input" v-model="editedUser.age" :rules="numberRule" label="Age" required></v-text-field>
+          <v-text-field class="spacing_input" v-model="editedUser.email" :rules="emailRules" label="E-mail" required></v-text-field>
         </v-form>
 
         <v-card-actions>
@@ -43,9 +44,14 @@ export default {
     name: '',
     nameRules: [
       v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      v => (v && v.length <= 50) || 'Name must be less than 10 characters',
     ],
-    numberRule: [v => (!isNaN(parseFloat(v)) && v >= 0 && v <= 150) || 'Number has to be between 0 and 150']
+    email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+    numberRule: [v => (!isNaN(parseFloat(v)) && v >= 0 && v <= 150) || 'Age has to be between 0 and 150']
   }),
   methods: {
     save() {
@@ -58,14 +64,13 @@ export default {
     close() {
       this.$emit('close')
     },
-
   },
 
 }
 </script>
 
 <style scoped>
-  .a{
-    padding: 0px 20px;
-  }
+.spacing_input {
+  padding: 5px 20px;
+}
 </style>

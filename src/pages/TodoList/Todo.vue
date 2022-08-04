@@ -45,7 +45,7 @@ export default {
     headers: [
       { text: "Name", align: "left", sortable: true, value: "name" },
       { text: "Age", value: "age" },
-      { text: "Phone Number", value: "phone" },
+      { text: "Email", value: "email" },
       { text: "Actions", value: "name", sortable: false }
     ],
     tutorials: [],

@@ -8,7 +8,7 @@
       <template slot="items" slot-scope="props">
         <td class="text-xs-left">{{ props.item.name }}</td>
         <td class="text-xs-left">{{ props.item.age }}</td>
-        <td class="text-xs-left">{{ props.item.phone }}</td>
+        <td class="text-xs-left">{{ props.item.email }}</td>
         <td class="layoutActions">
           <v-icon small class="mr-2" @click="editUser(props.item)">
             edit</v-icon
