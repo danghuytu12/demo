@@ -45,7 +45,7 @@ export default {
     headers: [
       { text: "Name", align: "left", sortable: true, value: "name" },
       { text: "Age", value: "age" },
-      { text: "Hành động", value: "name", sortable: false }
+      { text: "Actions", value: "name", sortable: false }
     ],
     projects: [],
     errors: [],

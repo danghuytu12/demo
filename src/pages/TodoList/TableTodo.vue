@@ -1,7 +1,7 @@
 <template>
      <v-data-table
       :headers="headers"
-      :items="tutorials"
+      :items="projects"
       :search="search"
       class="elevation-1"
     >
@@ -9,13 +9,12 @@
         <td class="text-xs-left">{{ props.item.name }}</td>
         <td class="text-xs-left">{{ props.item.age }}</td>
         <td class="layoutActions">
-          <v-icon small class="mr-2" @click="editedItem(props.item)">
+          <v-icon small class="mr-2" @click="editItem(props.item)">
             edit</v-icon
           >
-          <v-icon small @click="deleteItem(props.item.id)">delete</v-icon>
+          <v-icon small @click="deleteItem(props.item.id)"> delete</v-icon>
         </td>
       </template>
-
     </v-data-table>
 </template>
 
@@ -26,26 +25,19 @@ export default {
         headers: {
             type: Array,
         },
-        tutorials: {
+        projects: {
             type: Array,
-
         },
         search: {
             type: String,
-
         }
     },
-    data() {
-      return {
-
-      }
-    },
     methods: {
-        editedItem(item) {
-            this.$emit('editedItem', {item :item} )
+        editItem(item) {
+            this.$emit('editItem', {item :item} )
         },
-        deleteItem() {
-          this.$emit('deleteItem')
+        deleteItem(item) {
+          this.$emit('deleteItem',item)
         }
     }
 }
@@ -56,6 +48,6 @@ export default {
     align-items: center;
   }
   .elevation-1{
-    margin:50px 0px;
+    margin: 50px 0px;
   }
 </style>

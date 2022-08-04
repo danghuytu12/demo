@@ -8,9 +8,9 @@
         </v-card-title>
 
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="editedItem.name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
+          <v-text-field class="a" v-model="editedItem.name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
 
-          <v-text-field  v-model="editedItem.age" :rules="numberRule" label="Age" required></v-text-field>
+          <v-text-field class="a"  v-model="editedItem.age" :rules="numberRule" label="Age" required></v-text-field>
           
         </v-form>
 
@@ -65,5 +65,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .a{
+    padding: 0px 20px;
+  }
 </style>
