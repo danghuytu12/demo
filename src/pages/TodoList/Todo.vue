@@ -152,3 +152,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.v-overlay:before {
+  background-color: transparent;
+}
+</style>

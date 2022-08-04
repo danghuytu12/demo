@@ -8,11 +8,14 @@
         </v-card-title>
 
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field class="spacing_input"  v-model="editedUser.name" :counter="50" :rules="nameRules" label="Name" required>
+          <v-text-field class="spacing_input" v-model="editedUser.name" :counter="50" :rules="nameRules" label="Name"
+            required>
           </v-text-field>
 
-          <v-text-field class="spacing_input" v-model="editedUser.age" :rules="numberRule" label="Age" required></v-text-field>
-          <v-text-field class="spacing_input" v-model="editedUser.email" :rules="emailRules" label="E-mail" required></v-text-field>
+          <v-text-field class="spacing_input" v-model="editedUser.age" :rules="numberRule" label="Age" required>
+          </v-text-field>
+          <v-text-field class="spacing_input" v-model="editedUser.email" :rules="emailRules" label="E-mail" required>
+          </v-text-field>
         </v-form>
 
         <v-card-actions>
@@ -26,9 +29,9 @@
 </template>
 
 <script>
-import {validateAge,validateName,validateEmail} from '../../untils/validateInput';
+import { validateAge, validateName, validateEmail } from '../../untils/validateInput';
 export default {
-  
+
   props: {
     editedUser: {
       type: Object,
@@ -39,18 +42,18 @@ export default {
     title: {
       type: String,
     },
-    
+
   },
-  
+
   data: () => ({
-    
+
     valid: true,
     name: '',
-    age:'',
+    age: '',
     email: '',
-    nameRules:validateName(),
+    nameRules: validateName(),
     emailRules: validateEmail(),
-    numberRule: validateAge()
+    numberRule: validateAge(),
   }),
   methods: {
     save() {
@@ -63,7 +66,7 @@ export default {
     close() {
 
       this.$emit('close')
-      
+
     },
   },
 
@@ -73,5 +76,9 @@ export default {
 <style scoped>
 .spacing_input {
   padding: 5px 20px;
+}
+
+.v-overlay:before {
+  background-color: transparent;
 }
 </style>
