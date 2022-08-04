@@ -58,17 +58,17 @@ export default {
     save() {
       if (this.$refs.form.validate()) {
         this.$emit('save')
-        this.$refs.form.validate()
+        // this.$refs.form.validate()
         this.$refs.form.resetValidation()
       } else {
         this.$refs.form.validate()
-        this.$refs.form.resetValidation()
+        
       }
     },
     close() {
 
       this.$emit('close')
-
+this.$refs.form.resetValidation()
     },
   },
 
