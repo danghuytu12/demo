@@ -11,7 +11,7 @@
           <v-icon small class="mr-2" @click.stop="dialog = true">
             delete</v-icon>
 
-          <v-dialog v-model="dialog" persistent max-width="290">
+          <v-dialog v-model="dialog" persistent max-width="500">
             <v-card>
               <v-card-title class="text-h5">
                 Are you sure you want to delete this user information?

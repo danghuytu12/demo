@@ -12,7 +12,7 @@
             required>
           </v-text-field>
 
-          <v-text-field class="spacing_input" v-model="editedUser.age" :rules="numberRule" label="Age" required>
+          <v-text-field class="spacing_input" v-model="editedUser.age" :counter="3" :rules="numberRule" label="Age" required>
           </v-text-field>
           <v-text-field class="spacing_input" v-model="editedUser.email" :rules="emailRules" label="E-mail" required>
           </v-text-field>
@@ -59,7 +59,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.$emit('save')
         // this.$refs.form.validate()
-        this.$refs.form.resetValidation()
+        // this.$refs.form.resetValidation()
       } else {
         this.$refs.form.validate()
         

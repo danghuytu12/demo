@@ -1,7 +1,7 @@
 export function validateName() {
   return [
     v => !!v || "Name is required",
-    v => (v && v.length <= 50) || "Name must be less than 10 characters"
+    v => (v && v.length <= 50) || "Name must be less than 50 characters"
   ];
 }
 

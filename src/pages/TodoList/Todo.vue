@@ -65,11 +65,11 @@ export default {
     this.loadData();
   },
   mounted() {},
-  watch: {
-    dialog(val) {
-      val || this.close();
-    }
-  },
+  // watch: {
+  //   dialog(val) {
+  //     val || this.close();
+  //   }
+  // },
   components: {
     Dialog,
     TableTodo
@@ -100,7 +100,7 @@ export default {
 
     close() {
       this.dialog = false;
-      this.loadData;
+      
       this.loadForm();
     },
 
